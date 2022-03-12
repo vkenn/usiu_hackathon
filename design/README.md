@@ -1,6 +1,8 @@
 Our figma file is <link>
 
-Meanwhile, the solutions
+Meanwhile, the solutions.
+
+
 `Frugal thinking is based on the assumption that there is an innovative ‘sweet spot’ at which the right degree of constraints forces innovators to find suitable solutions`
 
 - USSD code with various functionalities.
