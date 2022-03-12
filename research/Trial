@@ -1,0 +1,50 @@
+#Breadth First Search & DFS
+
+class Environment(object):
+
+    myGraph = {"1":set(["2","3"]), "2":set(["1","4"]), "3":set(["1","4"]), "4":set(["2","3"])}
+    state = "2"
+    goal = "4"
+
+class Agent(Environment):
+    def __init__(self,Environment):
+        print("BFS Path: ")
+        print(Agent.BFS(Environment.myGraph, Environment.state, Environment.goal))
+
+        print("DFS Path: ")
+        print(Agent.DFS(Environment.myGraph, Environment.state, Environment.goal))
+
+    def BFS(myGraph, state, goal):
+         #use a queue 
+         queue = [(state,[state])] #1st - current state, 2nd - neighbours (current state)
+         journey = [] #record the journey
+
+         while queue:
+             (vertex,path) = queue.pop(0) #read the contents of the queue and decide next position to move
+             for next in myGraph[vertex] - set(path): # -set(path) to avoid revisiting
+                 if next == goal:
+                     journey.append(path+[next])
+                     return journey
+                 else:
+                     queue.append((next,path+[next]))
+         return journey
+
+    def DFS(myGraph, state, goal):
+         #use a queue 
+         queue = [(state,[state])] #1st - current state, 2nd - neighbours (current state)
+         journey = [] #record the journey
+
+         while queue:
+             #queue changes to stack
+             (vertex,path) = queue.pop() #read the contents of the queue and decide next position to move
+             for next in myGraph[vertex] - set(path): # -set(path) to avoid revisiting
+                 if next == goal:
+                     journey.append(path+[next])
+                     #return journey
+                 else:
+                     queue.append((next,path+[next]))
+         return journey
+
+
+myEnv = Environment()
+myAgent = Agent(myEnv)
