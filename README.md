@@ -1,5 +1,5 @@
 Creating an innovative solution towards the four SDG's
 Health 
-EDuctaion
+Education
 Energy 
 Food security
